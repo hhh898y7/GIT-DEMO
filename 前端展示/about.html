@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目介绍 - 支教之光</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .slide-in-up {
+            animation: slideInUp 0.8s ease-out;
+        }
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .project-image {
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-indigo-600">📚 支教之光</h1>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-indigo-600 transition duration-300">首页</a>
+                    <a href="about.html" class="text-indigo-600 font-semibold hover:text-indigo-800 transition duration-300">项目介绍</a>
+                    <a href="gallery.html" class="text-gray-700 hover:text-indigo-600 transition duration-300">活动风采</a>
+                    <a href="video.html" class="text-gray-700 hover:text-indigo-600 transition duration-300">视频中心</a>
+                    <a href="diary.html" class="text-gray-700 hover:text-indigo-600 transition duration-300">支教日记</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-indigo-600 transition duration-300">联系我们</a>
+                </div>
+                <!-- 移动端菜单按钮 -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-indigo-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- 移动端菜单 -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="index.html" class="block py-2 text-gray-700 hover:text-indigo-600">首页</a>
+                <a href="about.html" class="block py-2 text-indigo-600 font-semibold">项目介绍</a>
+                <a href="gallery.html" class="block py-2 text-gray-700 hover:text-indigo-600">活动风采</a>
+                <a href="video.html" class="block py-2 text-gray-700 hover:text-indigo-600">视频中心</a>
+                <a href="diary.html" class="block py-2 text-gray-700 hover:text-indigo-600">支教日记</a>
+                <a href="contact.html" class="block py-2 text-gray-700 hover:text-indigo-600">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="py-12">
+        <!-- 页面标题 -->
+        <section class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4 slide-in-up">支教项目介绍</h1>
+            <p class="text-xl text-gray-600 slide-in-up" style="animation-delay: 0.2s;">了解我们的项目背景、目标和服务内容</p>
+        </section>
+
+        <!-- 项目卡片 -->
+        <section class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 项目背景 -->
+                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden slide-in-up">
+                    <div class="overflow-hidden">
+                        <img src="image/项目背景.jpg" alt="项目背景" class="project-image w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-bold text-gray-800">项目背景</h3>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">背景介绍</span>
+                        </div>
+                        <div class="space-y-3">
+                            <p class="text-gray-600">支教之光项目源于对教育公平的追求，致力于缩小城乡教育差距，为山区学生提供优质教育资源。我们相信，每个孩子都应该享有平等的教育机会。</p>
+                            <div class="pt-4 border-t border-gray-200">
+                                <p class="text-gray-600 text-sm italic">"教育是改变命运的力量，让我们一起为山区教育贡献一份力量。"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 服务地区 -->
+                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden slide-in-up" style="animation-delay: 0.1s;">
+                    <div class="overflow-hidden">
+                        <img src="image/服务地区.jpg" alt="服务地区" class="project-image w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-bold text-gray-800">服务地区</h3>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">地区介绍</span>
+                        </div>
+                        <div class="space-y-3">
+                            <p class="text-gray-600">目前我们的支教服务主要覆盖云南、贵州、四川等西部山区，为当地多所小学提供教育支持。我们计划逐步扩大服务范围，帮助更多需要帮助的学校。</p>
+                            <div class="pt-4 border-t border-gray-200">
+                                <p class="text-gray-600 text-sm italic">"让知识的光芒照亮每一个角落。"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 教学内容 -->
+                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden slide-in-up" style="animation-delay: 0.2s;">
+                    <div class="overflow-hidden">
+                        <img src="image/教学内容.jpg" alt="教学内容" class="project-image w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-bold text-gray-800">教学内容</h3>
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-semibold">课程设置</span>
+                        </div>
+                        <div class="space-y-3">
+                            <p class="text-gray-600">我们提供语文、数学、英语等基础课程教学，同时开展音乐、美术、科学实验等特色课程，注重学生综合素质的培养和兴趣的激发。</p>
+                            <div class="pt-4 border-t border-gray-200">
+                                <p class="text-gray-600 text-sm italic">"全面发展，激发潜能。"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 志愿者要求 -->
+                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden slide-in-up" style="animation-delay: 0.3s;">
+                    <div class="overflow-hidden">
+                        <img src="image/志愿者要求.jpg" alt="志愿者要求" class="project-image w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-bold text-gray-800">志愿者要求</h3>
+                            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-semibold">招募条件</span>
+                        </div>
+                        <div class="space-y-3">
+                            <p class="text-gray-600">我们欢迎热心教育事业、有责任心的大学生加入。要求具备相关学科知识基础，有耐心和爱心，能够适应艰苦环境，承诺至少一学期的支教时间。</p>
+                            <div class="pt-4 border-t border-gray-200">
+                                <p class="text-gray-600 text-sm italic">"用心育人，让爱传递。"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 项目成果 -->
+                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden slide-in-up" style="animation-delay: 0.4s;">
+                    <div class="overflow-hidden">
+                        <img src="image/项目成果.jpg" alt="项目成果" class="project-image w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-bold text-gray-800">项目成果</h3>
+                            <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-semibold">成果展示</span>
+                        </div>
+                        <div class="space-y-3">
+                            <p class="text-gray-600">自项目开展以来，我们已在多个地区建立了长期合作关系，帮助数百名学生提升学习成绩，开拓视野。许多学生在各类比赛中取得优异成绩。</p>
+                            <div class="pt-4 border-t border-gray-200">
+                                <p class="text-gray-600 text-sm italic">"每一个进步都是希望的种子。"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 未来规划 -->
+                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden slide-in-up" style="animation-delay: 0.5s;">
+                    <div class="overflow-hidden">
+                        <img src="image/未来规划.jpg" alt="未来规划" class="project-image w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-bold text-gray-800">未来规划</h3>
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-semibold">发展方向</span>
+                        </div>
+                        <div class="space-y-3">
+                            <p class="text-gray-600">我们计划进一步扩大项目规模，引入更多教育资源，开发在线教育平台，实现远程支教与实地支教相结合，让更多学生受益。</p>
+                            <div class="pt-4 border-t border-gray-200">
+                                <p class="text-gray-600 text-sm italic">"创新模式，持续发展。"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 参与号召 -->
+        <section class="max-w-4xl mx-auto px-4 mt-16">
+            <div class="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl p-8 text-white text-center">
+                <h2 class="text-3xl font-bold mb-4">加入我们的支教团队</h2>
+                <p class="text-lg mb-6">如果您对支教事业充满热情，欢迎加入我们的志愿者团队</p>
+                <a href="contact.html" class="bg-white text-indigo-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300 inline-block">
+                    立即报名 ✍️
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-8 mt-16">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>&copy; 2025 支教之光. 让知识照亮每一个角落 📚</p>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 滚动动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // 观察所有项目卡片
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(50px)';
+            card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html> 

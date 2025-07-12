@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大学生支教 - 首页</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-indigo-600">📚 支教之光</h1>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-indigo-600 font-semibold hover:text-indigo-800 transition duration-300">首页</a>
+                    <a href="about.html" class="text-gray-700 hover:text-indigo-600 transition duration-300">项目介绍</a>
+                    <a href="gallery.html" class="text-gray-700 hover:text-indigo-600 transition duration-300">活动风采</a>
+                    <a href="video.html" class="text-gray-700 hover:text-indigo-600 transition duration-300">视频中心</a>
+                    <a href="diary.html" class="text-gray-700 hover:text-indigo-600 transition duration-300">支教日记</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-indigo-600 transition duration-300">联系我们</a>
+                </div>
+                <!-- 移动端菜单按钮 -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-indigo-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- 移动端菜单 -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="index.html" class="block py-2 text-indigo-600 font-semibold">首页</a>
+                <a href="about.html" class="block py-2 text-gray-700 hover:text-indigo-600">项目介绍</a>
+                <a href="gallery.html" class="block py-2 text-gray-700 hover:text-indigo-600">活动风采</a>
+                <a href="video.html" class="block py-2 text-gray-700 hover:text-indigo-600">视频中心</a>
+                <a href="diary.html" class="block py-2 text-gray-700 hover:text-indigo-600">支教日记</a>
+                <a href="contact.html" class="block py-2 text-gray-700 hover:text-indigo-600">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main>
+        <!-- 英雄区域 -->
+        <section class="hero-bg text-white py-20">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 fade-in-up">点亮知识之光，传递教育希望</h1>
+                <p class="text-xl md:text-2xl mb-8 fade-in-up" style="animation-delay: 0.2s;">用爱心和知识，为山区孩子创造更美好的未来</p>
+                <div class="fade-in-up" style="animation-delay: 0.4s;">
+                    <a href="about.html" class="bg-white text-indigo-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300 inline-block">
+                        了解更多 👋
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 特色介绍 -->
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">我们的使命</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center p-6 rounded-lg hover:shadow-lg transition duration-300">
+                        <div class="text-4xl mb-4">📚</div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">教育支持</h3>
+                        <p class="text-gray-600">为山区学校提供优质教育资源，帮助学生获得更好的学习机会。</p>
+                    </div>
+                    <div class="text-center p-6 rounded-lg hover:shadow-lg transition duration-300">
+                        <div class="text-4xl mb-4">🌱</div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">成长陪伴</h3>
+                        <p class="text-gray-600">关注学生全面发展，培养兴趣爱好，激发学习热情。</p>
+                    </div>
+                    <div class="text-center p-6 rounded-lg hover:shadow-lg transition duration-300">
+                        <div class="text-4xl mb-4">🤝</div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">文化交流</h3>
+                        <p class="text-gray-600">促进城乡教育文化交流，共建和谐美好的教育环境。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 快速导航 -->
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">探索更多</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <a href="about.html" class="bg-white rounded-lg p-6 hover:shadow-lg transition duration-300 group">
+                        <div class="text-3xl mb-4 group-hover:scale-110 transition duration-300">📖</div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">项目介绍</h3>
+                        <p class="text-gray-600">了解我们的支教项目详情</p>
+                    </a>
+                    <a href="gallery.html" class="bg-white rounded-lg p-6 hover:shadow-lg transition duration-300 group">
+                        <div class="text-3xl mb-4 group-hover:scale-110 transition duration-300">📸</div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">活动风采</h3>
+                        <p class="text-gray-600">查看支教活动精彩瞬间</p>
+                    </a>
+                    <a href="video.html" class="bg-white rounded-lg p-6 hover:shadow-lg transition duration-300 group">
+                        <div class="text-3xl mb-4 group-hover:scale-110 transition duration-300">🎬</div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">视频中心</h3>
+                        <p class="text-gray-600">观看支教活动视频记录</p>
+                    </a>
+                    <a href="diary.html" class="bg-white rounded-lg p-6 hover:shadow-lg transition duration-300 group">
+                        <div class="text-3xl mb-4 group-hover:scale-110 transition duration-300">📝</div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">支教日记</h3>
+                        <p class="text-gray-600">阅读志愿者的支教故事</p>
+                    </a>
+                    <a href="contact.html" class="bg-white rounded-lg p-6 hover:shadow-lg transition duration-300 group">
+                        <div class="text-3xl mb-4 group-hover:scale-110 transition duration-300">📞</div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">联系我们</h3>
+                        <p class="text-gray-600">加入我们或提供支持</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>&copy; 2025 支教之光. 让知识照亮每一个角落 📚</p>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html> 

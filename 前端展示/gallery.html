@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>活动风采 - 支教之光</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gallery-item {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            margin-top: 5%;
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #bbb;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-indigo-600">📚 支教之光</h1>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-indigo-600 transition duration-300">首页</a>
+                    <a href="about.html" class="text-gray-700 hover:text-indigo-600 transition duration-300">项目介绍</a>
+                    <a href="gallery.html" class="text-indigo-600 font-semibold hover:text-indigo-800 transition duration-300">活动风采</a>
+                    <a href="video.html" class="text-gray-700 hover:text-indigo-600 transition duration-300">视频中心</a>
+                    <a href="diary.html" class="text-gray-700 hover:text-indigo-600 transition duration-300">支教日记</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-indigo-600 transition duration-300">联系我们</a>
+                </div>
+                <!-- 移动端菜单按钮 -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-indigo-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- 移动端菜单 -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="index.html" class="block py-2 text-gray-700 hover:text-indigo-600">首页</a>
+                <a href="about.html" class="block py-2 text-gray-700 hover:text-indigo-600">项目介绍</a>
+                <a href="gallery.html" class="block py-2 text-indigo-600 font-semibold">活动风采</a>
+                <a href="video.html" class="block py-2 text-gray-700 hover:text-indigo-600">视频中心</a>
+                <a href="diary.html" class="block py-2 text-gray-700 hover:text-indigo-600">支教日记</a>
+                <a href="contact.html" class="block py-2 text-gray-700 hover:text-indigo-600">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="py-12">
+        <!-- 页面标题 -->
+        <section class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4 fade-in">活动风采</h1>
+            <p class="text-xl text-gray-600 fade-in">记录支教活动的精彩瞬间，点击图片可放大查看</p>
+        </section>
+
+        <!-- 图片网格 -->
+        <section class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 图片1 - 课堂教学 -->
+                <div class="gallery-item bg-white rounded-lg overflow-hidden shadow-lg fade-in" onclick="openModal('image/课堂教学.jpg', '生动有趣的课堂教学')">
+                    <img src="image/课堂教学.jpg" alt="生动有趣的课堂教学" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800">生动的课堂教学</h3>
+                        <p class="text-gray-600 text-sm mt-2">志愿者通过互动教学方式，让孩子们快乐学习</p>
+                    </div>
+                </div>
+
+                <!-- 图片2 - 课外活动 -->
+                <div class="gallery-item bg-white rounded-lg overflow-hidden shadow-lg fade-in" onclick="openModal('image/课外活动.jpg', '丰富多彩的课外活动')" style="animation-delay: 0.1s;">
+                    <img src="image/课外活动.jpg" alt="丰富多彩的课外活动" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800">趣味课外活动</h3>
+                        <p class="text-gray-600 text-sm mt-2">通过游戏和活动，培养孩子们的兴趣爱好</p>
+                    </div>
+                </div>
+
+                <!-- 图片3 - 文化交流 -->
+                <div class="gallery-item bg-white rounded-lg overflow-hidden shadow-lg fade-in" onclick="openModal('image/文化交流.jpg', '丰富的文化交流活动')" style="animation-delay: 0.2s;">
+                    <img src="image/文化交流.jpg" alt="丰富的文化交流活动" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800">文化交流活动</h3>
+                        <p class="text-gray-600 text-sm mt-2">志愿者与学生共同探索传统文化的魅力</p>
+                    </div>
+                </div>
+
+                <!-- 图片4 - 艺术课程 -->
+                <div class="gallery-item bg-white rounded-lg overflow-hidden shadow-lg fade-in" onclick="openModal('image/艺术课程.jpg', '丰富多彩的艺术课程')" style="animation-delay: 0.3s;">
+                    <img src="image/艺术课程.jpg" alt="丰富多彩的艺术课程" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800">艺术课程</h3>
+                        <p class="text-gray-600 text-sm mt-2">通过音乐、美术等课程，培养学生的艺术素养</p>
+                    </div>
+                </div>
+
+                <!-- 图片5 - 科学实验 -->
+                <div class="gallery-item bg-white rounded-lg overflow-hidden shadow-lg fade-in" onclick="openModal('image/科学实验.jpg', '有趣的科学实验课')" style="animation-delay: 0.4s;">
+                    <img src="image/科学实验.jpg" alt="有趣的科学实验课" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800">科学实验课</h3>
+                        <p class="text-gray-600 text-sm mt-2">通过实验激发学生对科学的兴趣和探索精神</p>
+                    </div>
+                </div>
+
+                <!-- 图片6 - 团队活动 -->
+                <div class="gallery-item bg-white rounded-lg overflow-hidden shadow-lg fade-in" onclick="openModal('image/团队活动.jpg', '温暖的团队活动时光')" style="animation-delay: 0.5s;">
+                    <img src="image/团队活动.jpg" alt="温暖的团队活动时光" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800">团队活动</h3>
+                        <p class="text-gray-600 text-sm mt-2">志愿者和学生们共同参与的团队建设活动</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 更多照片提示 -->
+        <section class="max-w-4xl mx-auto px-4 mt-16">
+            <div class="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl p-8 text-white text-center">
+                <h2 class="text-3xl font-bold mb-4">想了解更多活动故事？</h2>
+                <p class="text-lg mb-6">阅读我们的支教日记，了解更多精彩瞬间</p>
+                <a href="diary.html" class="bg-white text-indigo-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300 inline-block">
+                    查看支教日记 📖
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- 图片预览模态框 -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption" class="text-center text-white mt-4 text-lg"></div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-8 mt-16">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>&copy; 2025 支教之光. 让知识照亮每一个角落 📚</p>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 图片预览功能
+        function openModal(imageSrc, caption) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const captionText = document.getElementById('caption');
+            
+            modal.style.display = 'block';
+            modalImg.src = imageSrc;
+            captionText.innerHTML = caption;
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+        }
+
+        // 点击模态框背景关闭
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // ESC键关闭模态框
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // 滚动动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // 观察所有图片项
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(30px)';
+            item.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html> 

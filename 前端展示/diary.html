@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>支教日记 - 支教之光</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .timeline {
+            position: relative;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #4F46E5, #7C3AED);
+            transform: translateX(-50%);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        .timeline-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: 50%;
+            padding-right: 2rem;
+            text-align: right;
+        }
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 50%;
+            padding-left: 2rem;
+            text-align: left;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 1.5rem;
+            width: 1rem;
+            height: 1rem;
+            background: white;
+            border: 3px solid #4F46E5;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+        .diary-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .diary-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 1rem;
+            }
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin: 0;
+                padding-left: 3rem;
+                text-align: left;
+            }
+            .timeline-dot {
+                left: 1rem;
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-indigo-600">📚 支教之光</h1>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-indigo-600 transition duration-300">首页</a>
+                    <a href="about.html" class="text-gray-700 hover:text-indigo-600 transition duration-300">项目介绍</a>
+                    <a href="gallery.html" class="text-gray-700 hover:text-indigo-600 transition duration-300">活动风采</a>
+                    <a href="video.html" class="text-gray-700 hover:text-indigo-600 transition duration-300">视频中心</a>
+                    <a href="diary.html" class="text-indigo-600 font-semibold hover:text-indigo-800 transition duration-300">支教日记</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-indigo-600 transition duration-300">联系我们</a>
+                </div>
+                <!-- 移动端菜单按钮 -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-indigo-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- 移动端菜单 -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="index.html" class="block py-2 text-gray-700 hover:text-indigo-600">首页</a>
+                <a href="about.html" class="block py-2 text-gray-700 hover:text-indigo-600">项目介绍</a>
+                <a href="gallery.html" class="block py-2 text-gray-700 hover:text-indigo-600">活动风采</a>
+                <a href="video.html" class="block py-2 text-gray-700 hover:text-indigo-600">视频中心</a>
+                <a href="diary.html" class="block py-2 text-indigo-600 font-semibold">支教日记</a>
+                <a href="contact.html" class="block py-2 text-gray-700 hover:text-indigo-600">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="py-12">
+        <!-- 页面标题 -->
+        <section class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4 fade-in-up">支教日记</h1>
+            <p class="text-xl text-gray-600 fade-in-up" style="animation-delay: 0.2s;">记录志愿者们的支教故事和感动时刻</p>
+        </section>
+
+        <!-- 时间线 -->
+        <section class="max-w-6xl mx-auto px-4">
+            <div class="timeline">
+                
+                <!-- 日记1 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="diary-card">
+                            <div class="flex items-center mb-4">
+                                <div class="text-2xl mr-3">📅</div>
+                                <div>
+                                    <div class="text-sm text-indigo-600 font-semibold">2025年5月15日</div>
+                                    <div class="text-xs text-gray-500">星期四 · 晴天</div>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">第一次课堂体验</h3>
+                            <p class="text-gray-600 mb-4">今天是我第一次站上讲台，面对着一张张充满期待的脸庞，内心既紧张又激动。当看到孩子们认真听讲、积极回答问题的样子，所有的忐忑都化作了满满的感动。这里的孩子们学习热情高涨，让我深深体会到教育的意义。</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-4">
+                                    <span class="text-sm text-gray-500">📚 课堂记录</span>
+                                    <span class="text-sm text-gray-500">💭 教学感悟</span>
+                                </div>
+                                <div class="text-sm text-indigo-600 font-semibold">小李老师</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 日记2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="diary-card">
+                            <div class="flex items-center mb-4">
+                                <div class="text-2xl mr-3">📅</div>
+                                <div>
+                                    <div class="text-sm text-indigo-600 font-semibold">2025年5月12日</div>
+                                    <div class="text-xs text-gray-500">星期一 · 多云</div>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">特色美术课</h3>
+                            <p class="text-gray-600 mb-4">今天的美术课上，我们用简单的材料教孩子们制作了风筝。看着他们认真裁剪、粘贴的样子，以及完成作品时脸上洋溢的笑容，让我感受到了艺术教育的魅力。每个孩子都是天生的艺术家，只需要一点引导和鼓励。</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-4">
+                                    <span class="text-sm text-gray-500">🎨 艺术课程</span>
+                                    <span class="text-sm text-gray-500">✨ 创意时光</span>
+                                </div>
+                                <div class="text-sm text-indigo-600 font-semibold">小王老师</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 日记3 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="diary-card">
+                            <div class="flex items-center mb-4">
+                                <div class="text-2xl mr-3">📅</div>
+                                <div>
+                                    <div class="text-sm text-indigo-600 font-semibold">2025年5月10日</div>
+                                    <div class="text-xs text-gray-500">星期六 · 雨天</div>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">科学实验课</h3>
+                            <p class="text-gray-600 mb-4">下雨天我们在教室里做了简单的科学实验，看着孩子们对实验现象发出惊叹，提出各种奇思妙想的问题，让我看到了科学教育的重要性。原来知识不仅存在于课本中，更存在于生活的点点滴滴。</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-4">
+                                    <span class="text-sm text-gray-500">🔬 科学探索</span>
+                                    <span class="text-sm text-gray-500">💡 知识传递</span>
+                                </div>
+                                <div class="text-sm text-indigo-600 font-semibold">小张老师</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 日记4 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="diary-card">
+                            <div class="flex items-center mb-4">
+                                <div class="text-2xl mr-3">📅</div>
+                                <div>
+                                    <div class="text-sm text-indigo-600 font-semibold">2025年5月8日</div>
+                                    <div class="text-xs text-gray-500">星期四 · 晴天</div>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">文化交流日</h3>
+                            <p class="text-gray-600 mb-4">今天组织了一场特别的文化交流活动，孩子们表演了当地的民族舞蹈，我们也教了他们一些城市里流行的歌曲。文化的碰撞产生了美妙的火花，让我们彼此都收获了新的认识和感动。</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-4">
+                                    <span class="text-sm text-gray-500">🎭 文化交流</span>
+                                    <span class="text-sm text-gray-500">🌈 多元融合</span>
+                                </div>
+                                <div class="text-sm text-indigo-600 font-semibold">小陈老师</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 日记5 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="diary-card">
+                            <div class="flex items-center mb-4">
+                                <div class="text-2xl mr-3">📅</div>
+                                <div>
+                                    <div class="text-sm text-indigo-600 font-semibold">2025年5月5日</div>
+                                    <div class="text-xs text-gray-500">星期一 · 晴天</div>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">体育课上的欢乐</h3>
+                            <p class="text-gray-600 mb-4">今天的体育课格外精彩，我们组织了一场小型运动会。看着孩子们在操场上奔跑、跳跃，脸上洋溢着快乐的笑容，让我深深感受到体育运动带来的活力和快乐。</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-4">
+                                    <span class="text-sm text-gray-500">⚽ 体育活动</span>
+                                    <span class="text-sm text-gray-500">🏃 健康成长</span>
+                                </div>
+                                <div class="text-sm text-indigo-600 font-semibold">小周老师</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 日记6 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="diary-card">
+                            <div class="flex items-center mb-4">
+                                <div class="text-2xl mr-3">📅</div>
+                                <div>
+                                    <div class="text-sm text-indigo-600 font-semibold">2025年5月1日</div>
+                                    <div class="text-xs text-gray-500">星期四 · 晴天</div>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">新学期的开始</h3>
+                            <p class="text-gray-600 mb-4">今天是支教的第一天，我们怀着激动的心情来到这所山区学校。虽然条件艰苦，但看到孩子们渴望知识的眼神，我们知道一切都是值得的。希望在未来的日子里，能够为这里的教育事业贡献一份力量。</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-4">
+                                    <span class="text-sm text-gray-500">📖 新的开始</span>
+                                    <span class="text-sm text-gray-500">🌟 支教使命</span>
+                                </div>
+                                <div class="text-sm text-indigo-600 font-semibold">支教团队</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 分享故事提示 -->
+        <section class="max-w-4xl mx-auto px-4 mt-16">
+            <div class="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl p-8 text-white text-center">
+                <h2 class="text-3xl font-bold mb-4">分享你的支教故事</h2>
+                <p class="text-lg mb-6">每一个支教故事都值得被记录和分享</p>
+                <a href="contact.html" class="bg-white text-indigo-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300 inline-block">
+                    投稿支教日记 ✍️
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-8 mt-16">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>&copy; 2025 支教之光. 让知识照亮每一个角落 📚</p>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 时间线动画
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        // 观察所有时间线项目
+        document.querySelectorAll('.timeline-item').forEach((item, index) => {
+            // 添加延迟动画
+            item.style.transitionDelay = `${index * 0.2}s`;
+            observer.observe(item);
+        });
+
+        // 日记卡片点击效果
+        document.querySelectorAll('.diary-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // 模拟点击效果
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = 'translateY(-5px)';
+                }, 100);
+            });
+        });
+
+        // 平滑滚动到顶部
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // 添加返回顶部按钮（当页面滚动时显示）
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // 可以在这里添加返回顶部按钮的显示/隐藏逻辑
+            if (scrollTop > 300) {
+                // 显示返回顶部按钮
+            } else {
+                // 隐藏返回顶部按钮
+            }
+        });
+    </script>
+</body>
+</html> 
